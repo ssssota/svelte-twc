@@ -1,4 +1,4 @@
-name: Deploy storybook to GitHub Pages
+name: Deploy document to GitHub Pages
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
         working-directory: site
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site/dist
+          path: site/build
 
   deploy:
     needs: build
