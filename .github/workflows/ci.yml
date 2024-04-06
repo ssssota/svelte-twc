@@ -12,3 +12,5 @@ jobs:
       - uses: ./.github/actions/setup
       - run: pnpm lint
       - run: pnpm build
+      - run: pnpm build
+        working-directory: site
