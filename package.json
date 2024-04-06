@@ -1,0 +1,65 @@
+{
+	"name": "svelte-twc",
+	"version": "0.1.0",
+	"description": "Make reusable Tailwind CSS + Svelte components easily",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		},
+		"./server": {
+			"types": "./dist/server.d.ts",
+			"default": "./dist/server.js"
+		},
+		"./vite": {
+			"types": "./dist/vite.d.ts",
+			"default": "./dist/vite.js"
+		}
+	},
+	"scripts": {
+		"build": "tsx scripts/build.ts && tsc",
+		"lint": "prettier --check .",
+		"fmt": "prettier --write .",
+		"changeset": "changeset",
+		"release": "pnpm build && pnpm changeset publish"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ssssota/svelte-twc.git"
+	},
+	"keywords": [
+		"svelte",
+		"tailwind",
+		"css",
+		"twc"
+	],
+	"author": "TOMIKAWA Sotaro <tommysouta@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ssssota/svelte-twc/issues"
+	},
+	"homepage": "https://github.com/ssssota/svelte-twc#readme",
+	"packageManager": "pnpm@8.15.6",
+	"devDependencies": {
+		"@changesets/changelog-github": "^0.5.0",
+		"@changesets/cli": "^2.27.1",
+		"@types/node": "^20.12.5",
+		"esbuild": "^0.20.2",
+		"prettier": "^3.1.1",
+		"prettier-plugin-svelte": "^3.1.2",
+		"svelte": "^5.0.0-next.94",
+		"tsx": "^4.7.2",
+		"typescript": "^5.0.0",
+		"vite": "^5.2.8"
+	},
+	"peerDependencies": {
+		"svelte": ">=5.0.0-next.94",
+		"vite": ">=2.0.0"
+	},
+	"files": [
+		"dist"
+	]
+}
