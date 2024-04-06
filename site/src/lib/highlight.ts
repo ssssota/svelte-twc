@@ -13,6 +13,7 @@ export const highlightPlugin: Plugin = {
 		{
 			ignoreMissing: true,
 			languages: {
+				html: xml,
 				xml,
 				css,
 				javascript,

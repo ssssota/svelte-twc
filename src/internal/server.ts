@@ -2,8 +2,8 @@
 // Note: compiler output will change before 5.0 is released!
 import * as $ from "svelte/internal/server";
 export function createTwcComponent(el: keyof HTMLElementTagNameMap, options: { compose: (...args: any[]) => string }) {
-return (strings: TemplateStringsArray, ...values: any[]) => {
-const cls = String.raw({ raw: strings }, ...values);
+return (strings: string | TemplateStringsArray, ...values: any[]) => {
+const cls = String.raw({ raw: typeof strings === 'string' ? [strings] : strings }, ...values);
 
 return function TwcComponent($$payload, $$props) {
 	$.push(true);

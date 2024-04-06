@@ -1,5 +1,5 @@
 import type { ComponentType, SvelteComponent } from 'svelte';
-import {
+import type {
 	HTMLAnchorAttributes,
 	HTMLAreaAttributes,
 	HTMLAttributes,
