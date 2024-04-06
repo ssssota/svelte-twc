@@ -18,15 +18,13 @@ async function main() {
 function generate(mode: 'client' | 'server') {
 	const { js } = compile(
 		`
-    <script>
-      let { children, class: className, ...props } = $props();
-    </script>
-    <${replaceElement} {...props} class={COMPOSE(className, CLASS)}>{@render children?.()}</${replaceElement}>
-  `,
+		<script>
+			let { children, class: className, ...props } = $props();
+		</script>
+		<${replaceElement} {...props} class={COMPOSE(className, CLASS)}>{@render children?.()}</${replaceElement}>
+	`,
 		{ generate: mode, filename: `${componentName}.svelte` }
 	);
-
-	const lastImportLine = `import * as $ from "svelte/internal/${mode}";`;
 
 	return fs.writeFile(
 		path.resolve(root, `src/internal/${mode}.ts`),
@@ -36,12 +34,12 @@ function generate(mode: 'client' | 'server') {
 			.replace(`<${replaceElement}`, '<${el}')
 			.replace(`${replaceElement}>`, '${el}>')
 			.replace(
-				lastImportLine,
+				`import * as $ from "svelte/internal/${mode}";`,
 				[
 					'$&',
 					`export function ${functionName}(el: keyof HTMLElementTagNameMap, options: { compose: (...args: any[]) => string }) {`,
-					'return (strings: TemplateStringsArray, ...values: any[]) => {',
-					`const ${classVariable} = String.raw({ raw: strings }, ...values);`
+					'return (strings: string | TemplateStringsArray, ...values: any[]) => {',
+					`const ${classVariable} = String.raw({ raw: typeof strings === 'string' ? [strings] : strings }, ...values);`
 				].join('\n')
 			)
 			.replace('export default', 'return')

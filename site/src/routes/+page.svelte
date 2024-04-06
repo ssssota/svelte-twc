@@ -18,7 +18,7 @@
 				p: twc.p`my-2`,
 				pre: twc.pre`rounded-md overflow-x-auto border bg-gray-100`,
 				// HACK: use blockquote as a button
-				blockquote: twc.button`bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 [&>p]:my-0`
+				blockquote: twc.button`bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 [&>p]:contents`
 			}
 		}
 	];
@@ -75,6 +75,23 @@ export default defineConfig({
 Result:
 
 > Click me
+
+\`\`\`svelte
+<script lang="ts">
+	import { twc } from 'svelte-twc';
+	const colorClass = "bg-gray-200 text-gray-800";
+	const centeredClass = "flex items-center justify-center";
+	const Container = twc.div([colorClass, centeredClass].join(" "));
+<\x2fscript>
+
+<Container class="font-bold">...</Container>
+\`\`\`
+
+Result:
+
+\`\`\`html
+<div class="bg-gray-200 text-gray-800 flex items-center justify-center font-bold">...</div>
+\`\`\`
 `;
 </script>
 
