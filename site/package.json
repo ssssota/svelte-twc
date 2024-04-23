@@ -11,19 +11,19 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^3.0.1",
-		"@sveltejs/kit": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@sveltejs/kit": "^2.5.7",
+		"@sveltejs/vite-plugin-svelte": "^3.1.0",
 		"autoprefixer": "^10.4.19",
 		"highlight.js": "^11.9.0",
 		"postcss": "^8.4.38",
 		"rehype-highlight": "^7.0.0",
-		"svelte": "^5.0.0-next.1",
-		"svelte-check": "^3.6.0",
+		"svelte": "5.0.0-next.113",
+		"svelte-check": "^3.6.9",
 		"svelte-twc": "workspace:*",
 		"tailwindcss": "^3.4.3",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
-		"vite": "^5.0.3"
+		"tslib": "^2.6.2",
+		"typescript": "^5.4.5",
+		"vite": "^5.2.10"
 	},
 	"type": "module",
 	"dependencies": {
