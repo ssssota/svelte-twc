@@ -2,12 +2,12 @@
 	import Markdown, { type Plugin } from 'svelte-exmarkdown';
 	import { twc } from 'svelte-twc';
 	import { highlightPlugin } from '../lib/highlight';
-	const Header = twc.header`p-4 bg-gray-200 text-gray-800`;
-	const HeaderContainer = twc.div`max-w-4xl mx-auto flex items-center justify-between`;
+	const Header = twc.header`bg-gray-200 text-gray-800`;
+	const HeaderContainer = twc.div`max-w-4xl mx-auto p-4 flex items-center justify-between`;
 	const H1 = twc.h1`text-2xl font-bold`;
 	const Nav = twc.nav`flex items-center gap-4`;
 	const NavLink = twc.a`hover:underline`;
-	const Container = twc.main`max-w-4xl mx-auto py-4`;
+	const Container = twc.main`max-w-4xl mx-auto p-4`;
 
 	const plugins: Plugin[] = [
 		highlightPlugin,

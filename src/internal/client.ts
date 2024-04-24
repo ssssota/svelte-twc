@@ -1,4 +1,4 @@
-// TwcComponent.svelte (Svelte v5.0.0-next.94)
+// TwcComponent.svelte (Svelte v5.0.0-next.113)
 // Note: compiler output will change before 5.0 is released!
 import "svelte/internal/disclose-version";
 import * as $ from "svelte/internal/client";
@@ -8,7 +8,7 @@ const cls = String.raw({ raw: typeof strings === 'string' ? [strings] : strings 
 
 var root = $.template(`<${el}><!></${el}>`);
 
-return function TwcComponent($$anchor, $$props) {
+function TwcComponent($$anchor, $$props) {
 	$.push($$props, true);
 
 	let props = $.rest_props($$props, ["children", "class"]);
@@ -21,15 +21,17 @@ return function TwcComponent($$anchor, $$props) {
 	$.render_effect(() => attributes = $.set_attributes(
 		div,
 		attributes,
-		[
-			props,
-			{ class: options.compose($$props.class, cls) }
-		],
+		{
+			...props,
+			class: options.compose($$props.class, cls)
+		},
 		true,
 		""
 	));
 
 	$.append($$anchor, div);
 	$.pop();
-}};
+}
+
+return TwcComponent;};
 }
