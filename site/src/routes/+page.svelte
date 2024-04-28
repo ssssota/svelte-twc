@@ -95,6 +95,9 @@ Result:
 `;
 </script>
 
+<svelte:head>
+	<title>svelte-twc</title>
+</svelte:head>
 <Header>
 	<HeaderContainer>
 		<H1>svelte-twc</H1>
