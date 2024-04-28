@@ -50,13 +50,13 @@
 		"esbuild": "^0.20.2",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.2.3",
-		"svelte": "5.0.0-next.113",
+		"svelte": "5.0.0-next.115",
 		"tsx": "^4.7.2",
 		"typescript": "^5.4.5",
 		"vite": "^5.2.10"
 	},
 	"peerDependencies": {
-		"svelte": ">=5.0.0-next.94",
+		"svelte": ">=5.0.0-next.115",
 		"vite": ">=2.0.0"
 	},
 	"files": [
