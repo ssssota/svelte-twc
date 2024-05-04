@@ -1,5 +1,3 @@
-// TwcComponent.svelte (Svelte v5.0.0-next.115)
-// Note: compiler output will change before 5.0 is released!
 import * as $ from "svelte/internal/server";
 export function createTwcComponent(el: keyof HTMLElementTagNameMap, options: { compose: (...args: any[]) => string }) {
 return (strings: string | TemplateStringsArray, ...values: any[]) => {
@@ -16,7 +14,7 @@ return function TwcComponent($$payload, $$props) {
 			{ "class": options.compose(className, cls) }
 		],
 		true,
-		false,
+		true,
 		""
 	)}><!--[-->`;
 

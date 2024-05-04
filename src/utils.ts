@@ -112,25 +112,29 @@ export type HTMLPropsMap = {
 export type Attributes<El extends keyof HTMLElementTagNameMap> = El extends keyof HTMLPropsMap
 	? HTMLPropsMap[El]
 	: HTMLAttributes<HTMLElementTagNameMap[El]>;
+export type HTMLElementTagNames = keyof HTMLElementTagNameMap;
+export type TwcFunction<El extends HTMLElementTagNames> = (
+	strings: TemplateStringsArray,
+	...values: any[]
+) => ComponentType<SvelteComponent<Attributes<El>>>;
 
 export type Twc = {
-	[El in keyof HTMLElementTagNameMap]: (
-		strings: TemplateStringsArray,
-		...values: any[]
-	) => ComponentType<SvelteComponent<Attributes<El>>>;
+	[El in HTMLElementTagNames]: TwcFunction<El>;
 };
 export function createCore(
-	createTwcComponent: (
-		el: keyof HTMLElementTagNameMap,
-		options: TwcOptions
-	) => (strings: TemplateStringsArray, ...values: any[]) => any
+	createTwcComponent: (el: HTMLElementTagNames, options: TwcOptions) => any
 ) {
 	return (options: TwcOptions) => {
+		const cache = new Map<HTMLElementTagNames, TwcFunction<HTMLElementTagNames>>();
 		return new Proxy(
 			{},
 			{
-				get(_, el: keyof HTMLElementTagNameMap) {
-					return createTwcComponent(el, options);
+				get(_, el: HTMLElementTagNames): TwcFunction<HTMLElementTagNames> {
+					const cached = cache.get(el);
+					if (cached) return cached;
+					const component = createTwcComponent(el, options);
+					cache.set(el, component);
+					return component;
 				}
 			}
 		) as Twc;
