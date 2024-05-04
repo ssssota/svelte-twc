@@ -1,4 +1,4 @@
-name: CI
+name: VRT
 on:
   push:
     branches:
@@ -7,32 +7,33 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - run: npx playwright install --with-deps
-      - run: pnpm test
-  update-snapshot:
-    needs: [check]
-    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: site
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+      - run: pnpm -w build
       - run: npx playwright install --with-deps
-      - run: npx playwright test --update-snapshots
-      - run: gi add -N .; git diff --name-only --exit-code
+      - run: npx playwright test
+        id: test
+        continue-on-error: true
+
+      - if: steps.test.outcome == 'failure'
+        run: npx playwright test --update-snapshots
+      - if: steps.test.outcome == 'failure'
+        run: gi add -N .; git diff --name-only --exit-code
         id: git-diff
         continue-on-error: true
       - if: steps.git-diff.outcome == 'failure'
         run: |
           set -x
+          gh pr checkout ${{ github.event.number }}
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git commit -am "chore: update snapshots"
+          git add .
+          git commit -m "chore: update snapshots"
           git pull --rebase
           git push
         env:
