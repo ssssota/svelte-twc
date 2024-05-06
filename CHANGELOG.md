@@ -1,5 +1,11 @@
 # svelte-twc
 
+## 0.2.0
+
+### Minor Changes
+
+- [#12](https://github.com/ssssota/svelte-twc/pull/12) [`2ffb401`](https://github.com/ssssota/svelte-twc/commit/2ffb401ef043b482f3a2626d496df3d3050023e1) Thanks [@ssssota](https://github.com/ssssota)! - Remove vite plugin
+
 ## 0.1.3
 
 ### Patch Changes
