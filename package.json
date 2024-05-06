@@ -1,6 +1,6 @@
 {
 	"name": "svelte-twc",
-	"version": "0.1.3",
+	"version": "0.2.0",
 	"description": "Make reusable Tailwind CSS + Svelte components easily",
 	"type": "module",
 	"main": "dist/index.js",
