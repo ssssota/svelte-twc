@@ -6,7 +6,7 @@ declare module 'svelte/internal/*' {
 	declare function rest_props(...values: any[]): any;
 	declare function spread_attributes(...values: any[]): any;
 	declare function set_attributes(...values: any[]): any;
-	declare function render_effect(...values: any[]): any;
+	declare function template_effect(...values: any[]): any;
 	declare function append(...values: any[]): any;
 	declare function snippet(...values: any[]): any;
 	declare function append(...values: any[]): any;
@@ -15,11 +15,11 @@ declare module 'svelte/internal/*' {
 		child,
 		pop,
 		push,
-		render_effect,
 		rest_props,
 		set_attributes,
 		snippet,
 		spread_attributes,
-		template
+		template,
+		template_effect
 	};
 }
