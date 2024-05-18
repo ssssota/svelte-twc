@@ -4,7 +4,7 @@ return (strings: string | TemplateStringsArray, ...values: any[]) => {
 const cls = String.raw({ raw: typeof strings === 'string' ? [strings] : strings }, ...values);
 
 return function TwcComponent($$payload, $$props) {
-	$.push(true);
+	$.push();
 
 	let { children, class: className, ...props } = $$props;
 

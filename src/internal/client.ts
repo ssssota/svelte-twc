@@ -16,7 +16,7 @@ return function TwcComponent($$anchor, $$props) {
 
 	$.snippet(() => $$props.children, node);
 
-	$.render_effect(() => attributes = $.set_attributes(
+	$.template_effect(() => attributes = $.set_attributes(
 		div,
 		attributes,
 		{
