@@ -8,15 +8,10 @@ return function TwcComponent($$payload, $$props) {
 
 	let { children, class: className, ...props } = $$props;
 
-	$$payload.out += `<${el}${$.spread_attributes(
-		[
-			props,
-			{ "class": options.compose(className, cls) }
-		],
-		true,
-		true,
-		""
-	)}><!--[-->`;
+	$$payload.out += `<${el}${$.spread_attributes({
+		...props,
+		class: options.compose(className, cls)
+	})}><!--[-->`;
 
 	children?.($$payload);
 	$$payload.out += `<!--]--></${el}>`;
