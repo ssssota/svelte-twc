@@ -71,13 +71,12 @@ export default defineConfig({
 	const HoverableButton = twc(Button)\`hover:bg-blue-600\`;
 <\x2fscript>
 
-<Button>Click me</Button>
 <HoverableButton>Hover me</HoverableButton>
 \`\`\`
 
 Result:
 
-> Click me
+> Hover me
 
 \`\`\`svelte
 <script lang="ts">
