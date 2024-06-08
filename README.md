@@ -22,22 +22,6 @@ npm install svelte-twc
 If you are using VSCode, you can use auto-completion.
 Please check [TWC](https://react-twc.vercel.app/docs/getting-started#setup-autocompletion-in-your-editor) documentation.
 
-## Setup
-
-Setup tailwind.css in your project yourself.
-
-You need to add the plugin to your Vite config like this:
-
-```js
-import { sveltekit } from '@sveltejs/kit/vite';
-import { sveltetwc } from 'svelte-twc/vite';
-import { defineConfig } from 'vite';
-
-export default defineConfig({
-	plugins: [sveltekit(), sveltetwc()]
-});
-```
-
 ## Usage
 
 ```svelte
