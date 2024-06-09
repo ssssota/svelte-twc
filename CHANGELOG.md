@@ -1,5 +1,11 @@
 # svelte-twc
 
+## 0.4.0
+
+### Minor Changes
+
+- [#18](https://github.com/ssssota/svelte-twc/pull/18) [`804496f`](https://github.com/ssssota/svelte-twc/commit/804496f154cd2d01f83dfb64b890417519d8d5cf) Thanks [@ssssota](https://github.com/ssssota)! - Support component
+
 ## 0.3.1
 
 ### Patch Changes
