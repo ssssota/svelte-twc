@@ -1,4 +1,4 @@
-import type { ComponentType, SvelteComponent } from 'svelte';
+import type { Component, ComponentProps } from 'svelte';
 import type {
 	HTMLAnchorAttributes,
 	HTMLAreaAttributes,
@@ -113,21 +113,37 @@ export type Attributes<El extends keyof HTMLElementTagNameMap> = El extends keyo
 	? HTMLPropsMap[El]
 	: HTMLAttributes<HTMLElementTagNameMap[El]>;
 export type HTMLElementTagNames = keyof HTMLElementTagNameMap;
-export type TwcFunction<El extends HTMLElementTagNames> = (
+export type TwcFunction<El> = (
 	strings: TemplateStringsArray,
 	...values: any[]
-) => ComponentType<SvelteComponent<Attributes<El>>>;
+) => Component<
+	El extends Component
+		? ComponentProps<El>
+		: El extends HTMLElementTagNames
+			? Attributes<El>
+			: never
+>;
 
-export type Twc = {
+export type TwcForComponent = <C extends Component<any>>(component: C) => TwcFunction<C>;
+export type TwcForElement = {
 	[El in HTMLElementTagNames]: TwcFunction<El>;
 };
+export type Twc = TwcForComponent & TwcForElement;
 export function createCore(
 	createTwcComponent: (el: HTMLElementTagNames, options: TwcOptions) => any
 ) {
 	return (options: TwcOptions) => {
 		const cache = new Map<HTMLElementTagNames, TwcFunction<HTMLElementTagNames>>();
 		return new Proxy(
-			{},
+			(component: Component) =>
+				(strings: TemplateStringsArray, ...values: any[]) => {
+					const cls = String.raw(
+						{ raw: typeof strings === 'string' ? [strings] : strings },
+						...values
+					);
+					return (internal: any, props: any) =>
+						component(internal, { ...props, class: options.compose(cls, props.class) });
+				},
 			{
 				get(_, el: HTMLElementTagNames): TwcFunction<HTMLElementTagNames> {
 					const cached = cache.get(el);

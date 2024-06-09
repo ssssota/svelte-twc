@@ -2,8 +2,9 @@
 	import Markdown, { type Plugin } from 'svelte-exmarkdown';
 	import { twc } from 'svelte-twc';
 	import { highlightPlugin } from '../lib/highlight';
+	import PaddingDiv from './PaddingDiv.svelte';
 	const Header = twc.header`bg-gray-200 text-gray-800`;
-	const HeaderContainer = twc.div`max-w-4xl mx-auto p-4 flex items-center justify-between`;
+	const HeaderContainer = twc(PaddingDiv)`max-w-4xl mx-auto flex items-center justify-between`;
 	const H1 = twc.h1`text-2xl font-bold`;
 	const Nav = twc.nav`flex items-center gap-4`;
 	const NavLink = twc.a`hover:underline`;
@@ -66,15 +67,16 @@ export default defineConfig({
 \`\`\`svelte
 <script lang="ts">
 	import { twc } from 'svelte-twc';
-	const Button = twc.button\`bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600\`;
+	const Button = twc.button\`bg-blue-500 text-white px-4 py-2 rounded-md\`;
+	const HoverableButton = twc(Button)\`hover:bg-blue-600\`;
 <\x2fscript>
 
-<Button>Click me</Button>
+<HoverableButton>Hover me</HoverableButton>
 \`\`\`
 
 Result:
 
-> Click me
+> Hover me
 
 \`\`\`svelte
 <script lang="ts">
@@ -99,7 +101,7 @@ Result:
 	<title>svelte-twc</title>
 </svelte:head>
 <Header>
-	<HeaderContainer>
+	<HeaderContainer class="test">
 		<H1>svelte-twc</H1>
 		<Nav>
 			<NavLink target="_blank" href="https://github.com/ssssota/svelte-twc">GitHub</NavLink>
