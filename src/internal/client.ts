@@ -9,12 +9,20 @@ var root = $.template(`<${el}><!></${el}>`);
 return function TwcComponent($$anchor, $$props) {
 	$.push($$props, true);
 
-	let props = $.rest_props($$props, ["children", "class"]);
+	let props = $.rest_props($$props, [
+		"$$slots",
+		"$$events",
+		"$$legacy",
+		"children",
+		"class"
+	]);
+
 	var div = root();
 	let attributes;
 	var node = $.child(div);
 
-	$.snippet(() => $$props.children, node);
+	$.snippet(node, () => $$props.children);
+	$.reset(div);
 
 	$.template_effect(() => attributes = $.set_attributes(
 		div,

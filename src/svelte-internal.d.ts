@@ -10,11 +10,13 @@ declare module 'svelte/internal/*' {
 	declare function append(...values: any[]): any;
 	declare function snippet(...values: any[]): any;
 	declare function append(...values: any[]): any;
+	declare function reset(...values: any[]): any;
 	export {
 		append,
 		child,
 		pop,
 		push,
+		reset,
 		rest_props,
 		set_attributes,
 		snippet,

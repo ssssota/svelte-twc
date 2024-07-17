@@ -11,10 +11,10 @@ return function TwcComponent($$payload, $$props) {
 	$$payload.out += `<${el}${$.spread_attributes({
 		...props,
 		class: options.compose(className, cls)
-	})}><!--[-->`;
+	})}>`;
 
 	children?.($$payload);
-	$$payload.out += `<!--]--></${el}>`;
+	$$payload.out += `<!----></${el}>`;
 	$.pop();
 }};
 }
