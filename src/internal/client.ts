@@ -24,16 +24,10 @@ return function TwcComponent($$anchor, $$props) {
 	$.snippet(node, () => $$props.children);
 	$.reset(div);
 
-	$.template_effect(() => attributes = $.set_attributes(
-		div,
-		attributes,
-		{
-			...props,
-			class: options.compose($$props.class, cls)
-		},
-		true,
-		""
-	));
+	$.template_effect(() => attributes = $.set_attributes(div, attributes, {
+		...props,
+		class: options.compose($$props.class, cls)
+	}));
 
 	$.append($$anchor, div);
 	$.pop();
