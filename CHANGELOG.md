@@ -1,5 +1,11 @@
 # svelte-twc
 
+## 0.4.3
+
+### Patch Changes
+
+- [#26](https://github.com/ssssota/svelte-twc/pull/26) [`0bdb00e`](https://github.com/ssssota/svelte-twc/commit/0bdb00e7f5a625ff6941bb41b7bb7ff50ecfc732) Thanks [@ssssota](https://github.com/ssssota)! - Bumpup svelte
+
 ## 0.4.2
 
 ### Patch Changes
