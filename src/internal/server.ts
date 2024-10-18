@@ -6,7 +6,13 @@ const cls = String.raw({ raw: typeof strings === 'string' ? [strings] : strings 
 return function TwcComponent($$payload, $$props) {
 	$.push();
 
-	let { children, class: className, ...props } = $$props;
+	let {
+		children,
+		class: className,
+		$$slots,
+		$$events,
+		...props
+	} = $$props;
 
 	$$payload.out += `<${el}${$.spread_attributes({
 		...props,
