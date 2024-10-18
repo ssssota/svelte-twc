@@ -11,9 +11,11 @@ declare module 'svelte/internal/*' {
 	declare function snippet(...values: any[]): any;
 	declare function append(...values: any[]): any;
 	declare function reset(...values: any[]): any;
+	declare function noop(...values: any[]): any;
 	export {
 		append,
 		child,
+		noop,
 		pop,
 		push,
 		reset,
