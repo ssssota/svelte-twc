@@ -1,5 +1,11 @@
 # svelte-twc
 
+## 1.0.0
+
+### Major Changes
+
+- [#29](https://github.com/ssssota/svelte-twc/pull/29) [`7b94984`](https://github.com/ssssota/svelte-twc/commit/7b949844402f9a1d5e79dd68145f18e6269cba33) Thanks [@ssssota](https://github.com/ssssota)! - Support svelte5
+
 ## 0.4.3
 
 ### Patch Changes
