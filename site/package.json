@@ -19,7 +19,7 @@
 		"highlight.js": "^11.9.0",
 		"postcss": "^8.4.38",
 		"rehype-highlight": "^7.0.0",
-		"svelte": "5.0.0-next.269",
+		"svelte": "^5.0.0",
 		"svelte-check": "^3.6.9",
 		"svelte-twc": "workspace:*",
 		"tailwindcss": "^3.4.3",
