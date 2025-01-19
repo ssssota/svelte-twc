@@ -18,13 +18,15 @@ export function generate(mode: 'client' | 'server', typescript = false) {
 	// return code if typescript is true, otherwise return empty string
 	const ifTs = typescript ? (code: string) => code : (_code: string) => '';
 
+	console.log(js.code);
+
 	return js.code
 		.replace(/CLASS/g, classVariable)
 		.replace(/COMPOSE/g, 'options.compose')
 		.replace(`<${replaceElement}`, '<${el}')
 		.replace(`${replaceElement}>`, '${el}>')
 		.replace(
-			`import * as $ from "svelte/internal/${mode}";`,
+			`import * as $ from 'svelte/internal/${mode}';`,
 			[
 				'$&',
 				`export function ${functionName}(el${ifTs(': keyof HTMLElementTagNameMap')}, options${ifTs(': { compose: (...args: any[]) => string }')}) {`,

@@ -156,5 +156,3 @@ export function createCore(
 		) as Twc;
 	};
 }
-
-export const compose: Compose = (...args) => args.filter(Boolean).join(' ');
