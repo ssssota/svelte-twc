@@ -38,21 +38,21 @@
 	"homepage": "https://github.com/ssssota/svelte-twc#readme",
 	"devDependencies": {
 		"@changesets/changelog-github": "^0.5.0",
-		"@changesets/cli": "^2.27.9",
-		"@types/node": "^22.7.6",
-		"esbuild": "^0.24.0",
-		"prettier": "^3.3.3",
-		"prettier-plugin-svelte": "^3.2.7",
-		"svelte": "^5.0.0",
-		"tsx": "^4.19.1",
-		"typescript": "^5.6.3",
-		"vite": "^5.4.9"
+		"@changesets/cli": "^2.27.11",
+		"@types/node": "^22.10.7",
+		"esbuild": "^0.24.2",
+		"prettier": "^3.4.2",
+		"prettier-plugin-svelte": "^3.3.3",
+		"svelte": "^5.19.0",
+		"tsx": "^4.19.2",
+		"typescript": "^5.7.3",
+		"vite": "^6.0.7"
 	},
 	"peerDependencies": {
-		"svelte": ">=5.0.0"
+		"svelte": ">=5.16.0"
 	},
 	"files": [
 		"dist"
 	],
-	"packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
+	"packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }
